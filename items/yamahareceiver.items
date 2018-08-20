@@ -1,0 +1,23 @@
+// Switch LivingRoom_Amplituner "Amplituner" <receiver> (LivingRoom)
+// LivingRoom_Amplituner -> yamahareceiver:zone:0836eb7e:Main_Zone:zone_channels#power
+// LivingRoom_Amplituner -> yamahareceiver:zone:5f9ec1b3_ed59_1900_4530_00a0dea1d5f1:Main_Zone:zone_channels#power
+
+Group LivingRoom_Amplituner "Amplituner" <receiver> (LivingRoom) {
+    channel="yamahareceiver:zone:rxv670:Main_Zone:zone_channels#power"
+}
+Switch LivingRoom_Amplituner_Power "Amplituner [%s]" <switch> (LivingRoom_Amplituner) { 
+    channel="yamahareceiver:zone:rxv670:Main_Zone:zone_channels#power"
+}
+Dimmer LivingRoom_Amplituner_Volume "Głośność [%.1f %%]" <soundvolume> (LivingRoom_Amplituner) { 
+    channel="yamahareceiver:zone:rxv670:Main_Zone:zone_channels#volume"
+}
+Switch LivingRoom_Amplituner_Mute "Mute [%s]" <soundvolume_mute> (LivingRoom_Amplituner) {
+    channel="yamahareceiver:zone:rxv670:Main_Zone:zone_channels#mute"
+}
+String LivingRoom_Amplituner_Input "Input [%s]" <video> (LivingRoom_Amplituner) {
+    channel="yamahareceiver:zone:rxv670:Main_Zone:zone_channels#input"
+}
+Switch LivingRoom_Amplituner_Dialogue_Level "Dialogue Level [%d]" <soundvolume> (LivingRoom_Amplituner) 
+{
+    channel="yamahareceiver:zone:rxv670:Main_Zone:zone_channels#dialogueLevel"
+}

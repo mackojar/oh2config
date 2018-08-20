@@ -1,0 +1,12 @@
+
+Group:Switch:OR(ON,OFF) Network_Devices "Urządzenia sieciowe [%s]" <network>
+Group:Switch:OR(ON,OFF) Temporary_Devices "Urządzenia normalnie wyłączone [%s]" <network> (Network_Devices)
+Group Mobile_Devices "Urządzenia mobilne" <network> (Network_Devices)
+Group Regular_Devices "Pozostałe urządzenia" <network> (Network_Devices)
+Switch Presence_Ruter "Ruter [%s]" <network> (Regular_Devices) { channel="network:pingdevice:ruter:online" }
+Switch Presence_Mobile_Maciek "Telefon Maćka [%s]" <network> (Mobile_Devices) { channel="network:pingdevice:ruter:online" }
+Switch Presence_Mobile_Ania "Telefon Ani [%s]" <network> (Mobile_Devices) { channel="network:pingdevice:modemlte:online" }
+Switch Presence_ModemLTE "Lokalny modem LTE [%s]" <network> (Mobile_Devices,Temporary_Devices) { channel="network:pingdevice:modemlte:online" }
+Switch Presence_Printer "Drukarka [%s]" <network> (Temporary_Devices) { channel="network:pingdevice:printer:online" }
+// dodać WOL dla ubuntu :)
+Switch Presence_LinuxServer "Ubuntu [%s]" <network> (Temporary_Devices) { channel="network:pingdevice:ubuntu:online" }

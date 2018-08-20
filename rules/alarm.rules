@@ -1,0 +1,17 @@
+rule "Alarm OK"
+when
+    Item Alarm_Alarm changed or
+    Item Alarm_Trouble changed or
+    Item Alarm_Watch_Windows changed or
+    Item Alarm_Watch_PIRs changed 
+then
+//    logInfo("rules","Alarm OK rule launched!!!");
+    if( Alarm_Alarm.state != ON 
+        && Alarm_Trouble.state != ON
+        && Alarm_Watch_Windows.state != ON
+        && Alarm_Watch_PIRs.state != ON) {
+            Alarm_OK.sendCommand( ON);
+    } else {
+        Alarm_OK.sendCommand( OFF);
+    }
+end

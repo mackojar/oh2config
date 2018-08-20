@@ -1,0 +1,10 @@
+Bridge yamahareceiver:yamahaAV:rxv670 "Yamaha Bridge" [host="192.168.1.201", refreshInterval=20] {
+    Thing zone ZoneMain [zone="Main_Zone", volumeDbMin=-65, volumeDbMax=-10]
+}
+
+// Thing yamahareceiver:yamahaAV:0836eb7e
+// Thing yamahareceiver:yamahaAV:5f9ec1b3_ed59_1900_4530_00a0dea1d5f1 [ bridge="yamahareceiver:yamahaAV:0836eb7e" ]
+// Thing yamahareceiver:zone:0836eb7e:Main_Zone [ bridge="yamahareceiver:yamahaAV:0836eb7e" ]
+// yamahareceiver:yamahaAV:5f9ec1b3_ed59_1900_4530_00a0dea1d5f1 (Type=Bridge, Status=ONLINE, Label=Yamaha Receiver RX-V675, Bridge=null)
+// yamahareceiver:yamahaAV:0836eb7e (Type=Bridge, Status=ONLINE, Label=Yamaha Receiver, Bridge=null)
+// yamahareceiver:zone:0836eb7e:Main_Zone (Type=Thing, Status=ONLINE, Label=RX-V675 Main_Zone, Bridge=yamahareceiver:yamahaAV:0836eb7e)

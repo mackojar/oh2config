@@ -1,0 +1,46 @@
+sitemap dom label="Dom" {
+
+    // niech sie wyswietla na czerwono, jesli jest alarm, 
+    // na zolto, jesli jest czuwanie 1 strefy, 
+    // na zielono, jesli czuwaja 2 strefy
+    Frame {
+        Switch item=Alarm_OK label="Alarm nie czuwa" icon="house"
+            visibility=[Alarm_OK==ON]
+        Switch item=Alarm_Alarm label="Aktywny alarm!" icon="alarm"
+            visibility=[Alarm_Alarm==ON] 
+            labelcolor=["red"] valuecolor=["red"] //mappings=[ON="Aktywny!", OFF="Wszystko OK", UNDEF="undef"]
+        Switch item=Alarm_Alarm label="Problem z alarmem" icon="error"
+            visibility=[Alarm_Alarm==NULL] 
+            labelcolor=["red"] valuecolor=["red"]
+        Switch item=Alarm_Watch_Windows label="Czuwanie na oknach włączone" icon="energy"
+            visibility=[Alarm_Watch_Windows==ON] 
+            labelcolor=["green"] valuecolor=["green"]
+        Switch item=Alarm_Watch_PIRs label="Czuwanie w domu włączone" icon="energy"
+            visibility=[Alarm_Watch_PIRs==ON]
+            labelcolor=["green"] valuecolor=["green"]
+    }
+
+    Frame label="Pomieszczenia" {
+        Group item=Garage
+        Group item=LivingRoom
+    }
+
+    Frame label="Urządzenia" {
+        Group item=Network_Devices
+        Text item=LivingRoom_Amplituner_Power icon="receiver" {
+            Switch      item=LivingRoom_Amplituner_Power
+            Switch      item=LivingRoom_Amplituner_Mute
+            Slider      item=LivingRoom_Amplituner_Volume
+            Selection   item=LivingRoom_Amplituner_Input            mappings=[HDMI1="Kodi",HDMI2="PC",AUDIO1="TV",TUNER="Tuner",Spotify="Spotify",Bluetooth="Bluetooth","NET RADIO"="NetRadio",SERVER="Server",Straight="Straight"]
+            //Selection   item=LivingRoom_Amplituner_Surround         mappings=["2ch Stereo"="2ch Stereo","5ch Stereo"="5ch Stereo","Chamber"="Chamber","Sci-Fi"="Sci-Fi","Adventure"="Adventure"]
+            Setpoint    item=LivingRoom_Amplituner_Dialogue_Level   minValue=0 maxValue=2 step=1
+        }
+        Group item=HeatRecovery
+        Group item=Heating
+        Group item=Alarm
+    }
+
+    Frame {
+        Group item=Garden
+    }
+}

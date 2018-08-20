@@ -1,0 +1,4 @@
+Thing network:pingdevice:modemlte [ hostname="192.168.8.1" ]
+Thing network:pingdevice:ruter [ hostname="192.168.1.1" ]
+Thing network:pingdevice:printer [ hostname="192.168.1.20" ]
+Thing network:pingdevice:ubuntu [ hostname="192.168.1.3" ]

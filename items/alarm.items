@@ -1,0 +1,44 @@
+Group Alarm "Alarm" <alarm>
+
+Switch Alarm_OK "Alarm nie czuwa" (Alarm)
+Switch Alarm_Alarm "Alarm" (Alarm)
+Switch Alarm_Trouble "Awaria alarmu" (Alarm)
+Switch Alarm_Watch_Windows "Czuwanie na okna" (Alarm)
+Switch Alarm_Watch_PIRs "Czuwanie w domu" (Alarm)
+
+
+// Switch Alarm_Alarm "Alarm" (Alarm) {channel="satel:zone:afb7c1ef:19:alarm"}
+// Switch Alarm_Trouble "Awaria alarmu" (Alarm) {channel="satel:output:afb7c1ef:7:state"}
+// Switch Alarm_Watch_Windows "Czuwanie na okna" (Alarm) {channel="satel:output:afb7c1ef:6:state"}
+// Switch Alarm_Watch_PIRs "Czuwanie w domu" (Alarm) {channel="satel:output:afb7c1ef:19:state"}
+// Switch Alarm_HR_Slow "Spowolnienie rekuperatora" (Alarm,HeatRecovery) {channel="satel:output:afb7c1ef:8:state"}
+
+// Contact Garage_Door_Status "Brama Status" <garagedoor> (Garage) { channel="satel:zone:afb7c1ef:23:violation" }
+// Contact Garage_Door_Tamper "Brama złodziej" <garagedoor> (Garage) { channel="satel:zone:afb7c1ef:23:tamper" }
+
+// Switch PIRJadalnia_Violation "Ruch w salonie" <motion> (LivingRoom,Alarm)
+// Switch PIRJadalnia_Tamper "Czujka w salonie" <error> (LivingRoom,Alarm)
+
+//*************************
+// Alarm_Trouble -> satel:output:afb7c1ef:7:state
+// Alarm_Alarm -> satel:zone:afb7c1ef:19:alarm
+// Garage_Door_Tamper -> satel:zone:afb7c1ef:23:tamper
+// Alarm_Watch_PIRs -> satel:output:afb7c1ef:19:state
+// Alarm_Watch_Windows -> satel:output:afb7c1ef:6:state
+// Garage_Door_Status -> satel:zone:afb7c1ef:23:violation
+// Alarm_HR_Slow -> satel:output:afb7c1ef:8:state
+// PIRJadalnia_Tamper -> satel:zone:afb7c1ef:19:tamper
+// PIRJadalnia_Violation -> satel:zone:afb7c1ef:19:violation
+
+// Alarm (Type=GroupItem, Members=8, State=NULL, Label=Alarm, Category=alarm)
+// Alarm_OK (Type=SwitchItem, State=ON, Label=Alarm nie czuwa, Category=null, Groups=[Alarm])
+// Alarm_Alarm (Type=SwitchItem, State=OFF, Label=Alarm, Category=null, Groups=[Alarm])
+// Alarm_Trouble (Type=SwitchItem, State=OFF, Label=Awaria alarmu, Category=null, Groups=[Alarm])
+// Alarm_Watch_Windows (Type=SwitchItem, State=OFF, Label=Czuwanie na okna, Category=null, Groups=[Alarm])
+// Alarm_Watch_PIRs (Type=SwitchItem, State=OFF, Label=Czuwanie w domu, Category=null, Groups=[Alarm])
+// Alarm_HR_Slow (Type=SwitchItem, State=OFF, Label=Spowolnienie rekuperatora, Category=null, Groups=[Alarm, HeatRecovery])
+// Garage_Door_Status (Type=ContactItem, State=NULL, Label=Brama Status, Category=garagedoor, Groups=[Garage])
+// Garage_Door_Tamper (Type=ContactItem, State=NULL, Label=Brama złodziej, Category=garagedoor, Groups=[Garage])
+// Garage_Door_Movement (Type=SwitchItem, State=NULL, Label=Brama Ruch, Category=garagedoor, Groups=[Garage])
+// PIRJadalnia_Violation (Type=SwitchItem, State=OFF, Label=Ruch w salonie, Category=motion, Groups=[LivingRoom, Alarm])
+// PIRJadalnia_Tamper (Type=SwitchItem, State=OFF, Label=Czujka w salonie, Category=error, Groups=[LivingRoom, Alarm])

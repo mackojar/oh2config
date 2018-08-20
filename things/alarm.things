@@ -1,0 +1,11 @@
+//Thing satel:zone:afb7c1ef:22
+// satel:zone:afb7c1ef:22 (Type=Thing, Status=UNINITIALIZED (HANDLER_CONFIGURATION_PENDING), Label=Zone, Bridge=null)
+// satel:ethm-1:afb7c1ef (Type=Bridge, Status=ONLINE, Label=ETHM-1, Bridge=null)
+// satel:zone:afb7c1ef:19 (Type=Thing, Status=ONLINE, Label=PIR Jadalnia, Bridge=satel:ethm-1:afb7c1ef)
+// satel:output:afb7c1ef:6 (Type=Thing, Status=ONLINE, Label=Uzbr., Bridge=satel:ethm-1:afb7c1ef)
+// satel:output:afb7c1ef:19 (Type=Thing, Status=ONLINE, Label=czuwanie PIRów, Bridge=satel:ethm-1:afb7c1ef)
+// satel:output:afb7c1ef:5 (Type=Thing, Status=ONLINE, Label=Alarm, Bridge=satel:ethm-1:afb7c1ef)
+// satel:output:afb7c1ef:8 (Type=Thing, Status=ONLINE, Label=Zwolnij reku, Bridge=satel:ethm-1:afb7c1ef)
+// satel:output:afb7c1ef:7 (Type=Thing, Status=ONLINE, Label=Awaria, Bridge=satel:ethm-1:afb7c1ef)
+// satel:zone:afb7c1ef:23 (Type=Thing, Status=ONLINE, Label=KT Garaż, Bridge=satel:ethm-1:afb7c1ef)
+// satel:system:afb7c1ef (Type=Thing, Status=ONLINE, Label=Alarm system, Bridge=satel:ethm-1:afb7c1ef)
