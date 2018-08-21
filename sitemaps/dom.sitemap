@@ -15,7 +15,6 @@ sitemap dom label="Dom" {
             Switch item=Alarm_Trouble label="Problem z alarmem" icon="error"
             Switch item=Alarm_Watch_Windows label="Czuwanie na oknach włączone" icon="energy"
             Switch item=Alarm_Watch_PIRs label="Czuwanie PIRów włączone" icon="energy"
-            Text item=Alarm_Status_Color label="Color: [%d]" valuecolor=[0="black", 1="red", 2="yellow", 3="green", 4="orange"]
         }
     }
 
