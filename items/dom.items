@@ -9,8 +9,8 @@ Group LivingRoom "Salon" <sofa>
 // Switch PIRJadalnia_Violation "Ruch w salonie" <motion> (LivingRoom,Alarm)
 // Switch PIRJadalnia_Tamper "Czujka w salonie" <error> (LivingRoom,Alarm)
 
-Group HeatRecovery "Rekuperator"
+Group HeatRecovery "Rekuperator" <fan_box>
 
-Group Heating "Ogrzewanie"
+Group Heating "Ogrzewanie" <heating>
 
-Group Garden "Ogród"
+Group Garden "Ogród" <garden>

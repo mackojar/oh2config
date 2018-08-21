@@ -4,20 +4,14 @@ sitemap dom label="Dom" {
     // na zolto, jesli jest czuwanie 1 strefy, 
     // na zielono, jesli czuwaja 2 strefy
     Frame {
-        Switch item=Alarm_OK label="Alarm nie czuwa" icon="house"
-            visibility=[Alarm_OK==ON]
-        Switch item=Alarm_Alarm label="Aktywny alarm!" icon="alarm"
-            visibility=[Alarm_Alarm==ON] 
-            labelcolor=["red"] valuecolor=["red"] //mappings=[ON="Aktywny!", OFF="Wszystko OK", UNDEF="undef"]
-        Switch item=Alarm_Alarm label="Problem z alarmem" icon="error"
-            visibility=[Alarm_Alarm==NULL] 
-            labelcolor=["red"] valuecolor=["red"]
-        Switch item=Alarm_Watch_Windows label="Czuwanie na oknach włączone" icon="energy"
-            visibility=[Alarm_Watch_Windows==ON] 
-            labelcolor=["green"] valuecolor=["green"]
-        Switch item=Alarm_Watch_PIRs label="Czuwanie w domu włączone" icon="energy"
-            visibility=[Alarm_Watch_PIRs==ON]
-            labelcolor=["green"] valuecolor=["green"]
+        Text item=Alarm_Status valuecolor=[Alarm_Status_Color==0="black", 1="red", 2="yellow", 3="green", 4="orange"] {
+            Text item=Alarm_Status
+            Switch item=Alarm_Alarm label="Aktywny alarm!" icon="siren"
+            Switch item=Alarm_Trouble label="Problem z alarmem" icon="error"
+            Switch item=Alarm_Watch_Windows label="Czuwanie na oknach włączone" icon="energy"
+            Switch item=Alarm_Watch_PIRs label="Czuwanie PIRów włączone" icon="energy"
+            Text item=Alarm_Status_Color label="Color: [%d]" valuecolor=[0="black", 1="red", 2="yellow", 3="green", 4="orange"]
+        }
     }
 
     Frame label="Pomieszczenia" {

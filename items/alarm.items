@@ -1,23 +1,22 @@
 Group Alarm "Alarm" <alarm>
 
-Switch Alarm_OK "Alarm nie czuwa" (Alarm)
-Switch Alarm_Alarm "Alarm" (Alarm)
-Switch Alarm_Trouble "Awaria alarmu" (Alarm)
-Switch Alarm_Watch_Windows "Czuwanie na okna" (Alarm)
-Switch Alarm_Watch_PIRs "Czuwanie w domu" (Alarm)
+String Alarm_Status "Status alarmu [%s]" <shield> (Alarm)
+Number Alarm_Status_Color
 
+Switch Alarm_Alarm "Alarm" <siren> (Alarm) { channel="satel:output:integra:Alarm_Alarm:state"}
+Switch Alarm_Trouble "Awaria alarmu" <error> (Alarm) { channel="satel:system:integra:troubles"}
+Switch Alarm_Watch_Windows "Czuwanie na okna" (Alarm) { channel="satel:partition:integra:Alarm_Partition_Windows:armed" }
+Switch Alarm_Watch_PIRs "Czuwanie PIRów" (Alarm) { channel="satel:partition:integra:Alarm_Partition_PIRs:armed" }
+
+Switch Garage_Door_Status "Otwarta brama" <garagedoor> (Garage,Alarm) { channel="satel:zone:integra:Alarm_KTGarage:violation" }
+Switch Alarm_SlowHeatRecovery "Spowolnienie rekuperatora" (Alarm,HeatRecovery) {channel="satel:output:integra:Alarm_SlowHeatRecovery:state"}
 
 // Switch Alarm_Alarm "Alarm" (Alarm) {channel="satel:zone:afb7c1ef:19:alarm"}
 // Switch Alarm_Trouble "Awaria alarmu" (Alarm) {channel="satel:output:afb7c1ef:7:state"}
 // Switch Alarm_Watch_Windows "Czuwanie na okna" (Alarm) {channel="satel:output:afb7c1ef:6:state"}
 // Switch Alarm_Watch_PIRs "Czuwanie w domu" (Alarm) {channel="satel:output:afb7c1ef:19:state"}
 // Switch Alarm_HR_Slow "Spowolnienie rekuperatora" (Alarm,HeatRecovery) {channel="satel:output:afb7c1ef:8:state"}
-
-// Contact Garage_Door_Status "Brama Status" <garagedoor> (Garage) { channel="satel:zone:afb7c1ef:23:violation" }
 // Contact Garage_Door_Tamper "Brama złodziej" <garagedoor> (Garage) { channel="satel:zone:afb7c1ef:23:tamper" }
-
-// Switch PIRJadalnia_Violation "Ruch w salonie" <motion> (LivingRoom,Alarm)
-// Switch PIRJadalnia_Tamper "Czujka w salonie" <error> (LivingRoom,Alarm)
 
 //*************************
 // Alarm_Trouble -> satel:output:afb7c1ef:7:state

@@ -1,17 +1,47 @@
-rule "Alarm OK"
+val ALARM_STATUS_OK = "Alarm nie czuwa"
+val ALARM_STATUS_ALARM = "Alarm!!!"
+val ALARM_STATUS_WATCH_ALL = "Załączone czuwanie na cały dom"
+val ALARM_STATUS_WATCH_WINDOWS = "Załączone czuwanie na oknach"
+val ALARM_STATUS_WATCH_PIRS = "Załączone czuwanie PIRów"
+val ALARM_STATUS_UNDEF = "Inicjalizacja stanu..."
+val ALARM_STATUS_TROUBLE = "Satel zgłasza błędy. Sprawdź!"
+val ALARM_STATUS_ERROR = "Problem z połączeniem z Satel. Sprawdź!"
+
+rule "Init alarm status"
 when
-    Item Alarm_Alarm changed or
-    Item Alarm_Trouble changed or
-    Item Alarm_Watch_Windows changed or
-    Item Alarm_Watch_PIRs changed 
+    System started
 then
-//    logInfo("rules","Alarm OK rule launched!!!");
-    if( Alarm_Alarm.state != ON 
-        && Alarm_Trouble.state != ON
-        && Alarm_Watch_Windows.state != ON
-        && Alarm_Watch_PIRs.state != ON) {
-            Alarm_OK.sendCommand( ON);
+    Alarm_Status.sendCommand(ALARM_STATUS_UNDEF);
+    Alarm_Status_Color.sendCommand(0);
+end
+
+rule "Alarm Status"
+when
+    Item Alarm_Alarm changed
+    or Item Alarm_Trouble changed
+    or Item Alarm_Watch_Windows changed
+    or Item Alarm_Watch_PIRs changed 
+then
+    if( Alarm_Alarm.state == ON) {
+        Alarm_Status.sendCommand( ALARM_STATUS_ALARM);
+        Alarm_Status_Color.sendCommand(1);
+    } else if(Alarm_Alarm.state != OFF) {
+        Alarm_Status.sendCommand( ALARM_STATUS_ERROR);
+        Alarm_Status_Color.sendCommand(1);
+    } else if( Alarm_Trouble.state == ON) {
+        Alarm_Status.sendCommand( ALARM_STATUS_TROUBLE);
+        Alarm_Status_Color.sendCommand(2);
+    } else if(Alarm_Watch_Windows.state == ON && Alarm_Watch_PIRs.state == ON) {
+        Alarm_Status.sendCommand( ALARM_STATUS_WATCH_ALL);
+        Alarm_Status_Color.sendCommand(3);
+    } else if(Alarm_Watch_Windows.state == ON) {
+        Alarm_Status.sendCommand( ALARM_STATUS_WATCH_WINDOWS);
+        Alarm_Status_Color.sendCommand(3);
+    } else if(Alarm_Watch_PIRs.state == ON) {
+        Alarm_Status.sendCommand( ALARM_STATUS_WATCH_PIRS);
+        Alarm_Status_Color.sendCommand(4);
     } else {
-        Alarm_OK.sendCommand( OFF);
+        Alarm_Status.sendCommand( ALARM_STATUS_OK);
+        Alarm_Status_Color.sendCommand(0);
     }
 end
