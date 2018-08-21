@@ -4,7 +4,12 @@ sitemap dom label="Dom" {
     // na zolto, jesli jest czuwanie 1 strefy, 
     // na zielono, jesli czuwaja 2 strefy
     Frame {
-        Text item=Alarm_Status valuecolor=[Alarm_Status_Color==0="black", 1="red", 2="yellow", 3="green", 4="orange"] {
+        Text item=Alarm_Status valuecolor=[
+                Alarm_Status_Color==0="black", 
+                Alarm_Status_Color==1="red", 
+                Alarm_Status_Color==2="lime", 
+                Alarm_Status_Color==3="green", 
+                Alarm_Status_Color==4="orange"] {
             Text item=Alarm_Status
             Switch item=Alarm_Alarm label="Aktywny alarm!" icon="siren"
             Switch item=Alarm_Trouble label="Problem z alarmem" icon="error"
@@ -20,6 +25,7 @@ sitemap dom label="Dom" {
     }
 
     Frame label="Urządzenia" {
+        Group item=Temporary_Devices
         Group item=Network_Devices
         Text item=LivingRoom_Amplituner_Power icon="receiver" {
             Switch      item=LivingRoom_Amplituner_Power

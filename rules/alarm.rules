@@ -3,17 +3,9 @@ val ALARM_STATUS_ALARM = "Alarm!!!"
 val ALARM_STATUS_WATCH_ALL = "Załączone czuwanie na cały dom"
 val ALARM_STATUS_WATCH_WINDOWS = "Załączone czuwanie na oknach"
 val ALARM_STATUS_WATCH_PIRS = "Załączone czuwanie PIRów"
-val ALARM_STATUS_UNDEF = "Inicjalizacja stanu..."
+//val ALARM_STATUS_UNDEF = "Inicjalizacja stanu..."
 val ALARM_STATUS_TROUBLE = "Satel zgłasza błędy. Sprawdź!"
 val ALARM_STATUS_ERROR = "Problem z połączeniem z Satel. Sprawdź!"
-
-rule "Init alarm status"
-when
-    System started
-then
-    Alarm_Status.sendCommand(ALARM_STATUS_UNDEF);
-    Alarm_Status_Color.sendCommand(0);
-end
 
 rule "Alarm Status"
 when
@@ -21,6 +13,7 @@ when
     or Item Alarm_Trouble changed
     or Item Alarm_Watch_Windows changed
     or Item Alarm_Watch_PIRs changed 
+    or System started
 then
     if( Alarm_Alarm.state == ON) {
         Alarm_Status.sendCommand( ALARM_STATUS_ALARM);
