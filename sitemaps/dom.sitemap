@@ -31,9 +31,7 @@ sitemap dom label="Dom" {
             Switch      item=LivingRoom_Amplituner_Power
             Switch      item=LivingRoom_Amplituner_Mute
             Slider      item=LivingRoom_Amplituner_Volume
-            Selection   item=LivingRoom_Amplituner_Input            mappings=[HDMI1="Kodi",HDMI2="PC",AUDIO1="TV",TUNER="Tuner",Spotify="Spotify",Bluetooth="Bluetooth","NET RADIO"="NetRadio",SERVER="Server",Straight="Straight"]
-            //Selection   item=LivingRoom_Amplituner_Surround         mappings=["2ch Stereo"="2ch Stereo","5ch Stereo"="5ch Stereo","Chamber"="Chamber","Sci-Fi"="Sci-Fi","Adventure"="Adventure"]
-            Setpoint    item=LivingRoom_Amplituner_Dialogue_Level   minValue=0 maxValue=2 step=1
+            Selection   item=LivingRoom_Amplituner_Input            mappings=[HDMI1="TV",HDMI2="HDMI2",HDMI5="Komputer",TUNER="Tuner",Spotify="Spotify",Bluetooth="Bluetooth","NET RADIO"="NetRadio"]
         }
         Group item=HeatRecovery
         Group item=Heating
